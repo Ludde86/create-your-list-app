@@ -4,7 +4,6 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import styles from './styles';
 
 export default function RegistrationScreen({navigation}) {
-    const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -25,18 +24,10 @@ export default function RegistrationScreen({navigation}) {
                     style={styles.logo}
                     source={require('../../../assets/Puredo_200x200.png')}
                 />
+                
                 <TextInput
                     style={styles.input}
-                    placeholder='Full Name'
-                    placeholderTextColor="#aaaaaa"
-                    onChangeText={(text) => setFullName(text)}
-                    value={fullName}
-                    underlineColorAndroid="transparent"
-                    autoCapitalize="none"
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder='E-mail'
+                    placeholder='Användarnamn'
                     placeholderTextColor="#aaaaaa"
                     onChangeText={(text) => setEmail(text)}
                     value={email}
@@ -47,7 +38,7 @@ export default function RegistrationScreen({navigation}) {
                     style={styles.input}
                     placeholderTextColor="#aaaaaa"
                     secureTextEntry
-                    placeholder='Password'
+                    placeholder='Lösenord'
                     onChangeText={(text) => setPassword(text)}
                     value={password}
                     underlineColorAndroid="transparent"
@@ -57,7 +48,7 @@ export default function RegistrationScreen({navigation}) {
                     style={styles.input}
                     placeholderTextColor="#aaaaaa"
                     secureTextEntry
-                    placeholder='Confirm Password'
+                    placeholder='Bekräfta Lösenord'
                     onChangeText={(text) => setConfirmPassword(text)}
                     value={confirmPassword}
                     underlineColorAndroid="transparent"
@@ -66,10 +57,10 @@ export default function RegistrationScreen({navigation}) {
                 <TouchableOpacity
                     style={styles.button}
                     onPress={() => onRegisterPress()}>
-                    <Text style={styles.buttonTitle}>Create account</Text>
+                    <Text style={styles.buttonTitle}>Skapa konto</Text>
                 </TouchableOpacity>
                 <View style={styles.footerView}>
-                    <Text style={styles.footerText}>Already got an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in</Text></Text>
+                    <Text style={styles.footerText}>Har redan ett konto? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Logga in</Text></Text>
                 </View>
             </KeyboardAwareScrollView>
         </View>
