@@ -44,7 +44,7 @@ export default StyleSheet.create({
         marginTop: 20
     },
     footerLink: {
-        color: colors.darkGreen,
+        color: colors.blue,
         fontWeight: 'bold',
         fontSize: 16
     }

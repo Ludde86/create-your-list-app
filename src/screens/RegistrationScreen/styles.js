@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import colors from '../../colors/Colors'
 
 export default StyleSheet.create({
     container: {
@@ -25,7 +26,7 @@ export default StyleSheet.create({
         paddingLeft: 16
     },
     button: {
-        backgroundColor: '#788eec',
+        backgroundColor: colors.purple,
         marginLeft: 30,
         marginRight: 30,
         marginTop: 20,
@@ -46,10 +47,10 @@ export default StyleSheet.create({
     },
     footerText: {
         fontSize: 16,
-        color: '#2e2e2d'
+        color: colors.blackB
     },
     footerLink: {
-        color: "#788eec",
+        color: colors.blue,
         fontWeight: "bold",
         fontSize: 16
     }
