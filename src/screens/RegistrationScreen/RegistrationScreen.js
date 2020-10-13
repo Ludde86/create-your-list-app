@@ -19,13 +19,19 @@ export default function RegistrationScreen({navigation}) {
             alert('Lösenorden matchar inte')
             return
         }
-        firebase.auth().createUserWithEmailAndPassword(email, password)
+
+        // create a new account in firebase
+        firebase.auth().createUserWithEmailAndPassword(email + '@puredo.com', password + '#puredo')
             .then(response => {
+                
+                // the user and its data
                 const uid = response.user.uid;
                 const data = {
                     id: uid,
                     email,
                 };
+
+                // store the user and its data in firestore
                 const usersRef = firebase.firestore().collection('users')
                     usersRef.doc(uid).set(data)
                         .then(() => {
