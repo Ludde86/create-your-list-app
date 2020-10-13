@@ -28,7 +28,7 @@ export default function RegistrationScreen({navigation}) {
                 const uid = response.user.uid;
                 const data = {
                     id: uid,
-                    email,
+                    email: email + '@puredo.com',
                 };
 
                 // store the user and its data in firestore
