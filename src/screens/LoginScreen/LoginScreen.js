@@ -3,7 +3,10 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
 
+import { firebase } from '../../firebase/config'
+
 export default function LoginScreen({navigation}) {
+    console.log(navigation.navigate('Home'))
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -12,6 +15,30 @@ export default function LoginScreen({navigation}) {
     }
 
     const onLoginPress = () => {
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(email + '@puredo.com', password + '#puredo')
+            .then((response) => {
+                const uid = response.user.uid
+                const usersRef = firebase.firestore().collection('users')
+                usersRef
+                    .doc(uid)
+                    .get()
+                    .then(firestoreDocument => {
+                        if (!firestoreDocument.exists) {
+                            alert("Användare existerar inte.")
+                            return;
+                        }
+                        const user = firestoreDocument.data()
+                        navigation.navigate('Home', {user})
+                    })
+                    .catch(error => {
+                        alert(error)
+                    });
+            })
+            .catch(error => {
+                alert(error)
+            })
     }
 
     return (

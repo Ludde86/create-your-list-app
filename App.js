@@ -9,14 +9,16 @@ if (!global.atob) { global.atob = decode }
 
 const Stack = createStackNavigator();
 
-// application container
-export default function App() {
+export default function App(props) {
 
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState(null)
 
+  useEffect(() => {
+    
+  },[]);
+
   return (
-    // wrap the application with navigation container, so we can navigate between each screen (stack) 
     <NavigationContainer>
       <Stack.Navigator>
         { user ? (
