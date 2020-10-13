@@ -23,9 +23,9 @@ export default function App() {
     )	
   }
 
-  // onAuthStateChanged returns the currently logged in user
+  // persistent login
   useEffect(() => {
-    console.log('useEffect')
+   
     const usersRef = firebase.firestore().collection('users');
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
